@@ -72,6 +72,16 @@ export const signups = new mongoose.Schema(
             ref: "Shift",
             required: true,
         },
+        start_date: {
+            type: Date,
+            required: true,
+            trim: true,
+        },
+        end_date: {
+            type: Date,
+            required: true,
+            trim: true,
+        }
     },
     {
         timestamps: true,
