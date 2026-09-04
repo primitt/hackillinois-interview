@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 
+
+// TODO: maybe need to edit signups to include start time/end time only? timezone needed? how to do?
+
 dotenv.config();
 
 export async function connectDatabase(): Promise<void> {
