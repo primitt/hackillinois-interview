@@ -20,9 +20,6 @@ const create_shift_schema = z.object({
     slot_duration: z.number().int().positive().default(30),
 });
 
-// TODO: replace next(error) with proper error handling
-
-
 // get all shifts
 router.get("/", async (_req, res, next) => {
     try {

@@ -1,6 +1,3 @@
-// DESIGN:
-// Volunteers will sign up for a certain "time" slot(s) within a shift, i.e a day or a couple hours, depending on when the start time and end time are. 
-
 import { Router } from "express";
 import { z } from "zod";
 
@@ -208,8 +205,6 @@ router.post("/create/", async (req, res, next) => {
         next(error);
     }
 });
-
-// TODO: Add /update route
 
 router.post("/delete/:id", async (req, res, next) => {
     try {
