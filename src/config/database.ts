@@ -42,19 +42,24 @@ export const shifts = new mongoose.Schema(
             required: true,
             trim: true,
         },
-        start_date: {
+        starts_at: {
             type: Date,
             required: true,
             trim: true,
         },
-        end_date: {
+        ends_at: {
             type: Date,
             required: true,
             trim: true,
         },
-       total_capacity: {
+        capacity: {
             type: Number,
             required: true,
+            trim: true,
+        },
+        slot_duration : {
+            type: Number,
+            default: 30,
             trim: true,
         },
     },
@@ -75,12 +80,12 @@ export const signups = new mongoose.Schema(
             ref: "Shift",
             required: true,
         },
-        start_date: {
+        starts_at: {
             type: Date,
             required: true,
             trim: true,
         },
-        end_date: {
+        ends_at: {
             type: Date,
             required: true,
             trim: true,

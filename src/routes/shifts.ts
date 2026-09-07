@@ -26,9 +26,10 @@ router.post("/create", async (req, res, next) => {
         }
         const shift = await Shift.create({
             role: req.body.role,
-            start_date: req.body.start_date,
-            end_date: req.body.end_date,
-            total_capacity: req.body.total_capacity,
+            starts_at: req.body.start_date,
+            ends_at: req.body.end_date,
+            capacity: req.body.total_capacity,
+            slot_duration: req.body.shift_duration ? req.body.shift_duration : 30,
         });
 
         res.status(201).json(shift);
@@ -59,9 +60,10 @@ router.post("/update/:id", async (req, res, next) => {
             return;
         }
         if (req.body.role) shift.role = req.body.role;
-        if (req.body.start_date) shift.start_date = req.body.start_date;
-        if (req.body.end_date) shift.end_date = req.body.end_date;
-        if (req.body.total_capacity) shift.total_capacity = req.body.total_capacity;
+        if (req.body.starts_at) shift.starts_at = req.body.starts_at;
+        if (req.body.ends_at) shift.ends_at = req.body.ends_at;
+        if (req.body.capacity) shift.capacity = req.body.capacity;
+        if (req.body.slot_duration) shift.slot_duration = req.body.slot_duration;
 
         await shift.save();
         res.status(200).json(shift);
