@@ -37,6 +37,7 @@ export async function find_full_slots({
 
     for (let slot_start = requested_start_time; slot_start < requested_end_time; slot_start += slot_duration_ms) {
         const slot_end = Math.min(slot_start + slot_duration_ms, requested_end_time);
+        
         const occupied = overlapping_signups.filter((existing_signup) =>
             existing_signup.starts_at.getTime() < slot_end
             && existing_signup.ends_at.getTime() > slot_start
